@@ -1,39 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dply-struts-cli-demo
+  name: struts
   labels:
     app: struts
 spec:
-  name: struts-cli-demo
+  name: struts
   replicas: 1
   selector:
     matchLabels:
-      app: struts-cli-demo
+      app: struts
   template:
     metadata:
       labels:
-        app: struts-cli-demo
+        app: struts
     spec:
       containers:
-      - name: struts-cli-demo
+      - name: struts
         image: skywalke34/struts
         ports:
         - containerPort: 8080
-          name: 8080tcp8080
+          name: struts-8080-tcp
           protocol: TCP
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-struts-cli-demo
+  name: struts
 spec:
   type: NodePort
   selector:
-    app: struts-cli-demo
+    app: struts
   ports:
     - protocol: TCP
       port: 8080
-      targetPort: 8080tcp8080
+      targetPort: struts-8080-tcp
       nodePort: 32080
       
