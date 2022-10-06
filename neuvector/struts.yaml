@@ -36,6 +36,7 @@ spec:
   ports:
     - protocol: TCP
       port: 8080
-      targetPort: struts-8080-tcp
+      targetPort: 8080
+      name: struts-8080-tcp
       nodePort: 32080
       
