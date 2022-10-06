@@ -5,17 +5,18 @@ metadata:
   labels:
     app: struts
 spec:
+  name: struts-cli-demo
   replicas: 1
   selector:
     matchLabels:
-      app: struts
+      app: struts-cli-demo
   template:
     metadata:
       labels:
-        app: struts
+        app: struts-cli-demo
     spec:
       containers:
-      - name: struts
+      - name: struts-cli-demo
         image: skywalke34/struts
         ports:
         - containerPort: 8080
@@ -29,7 +30,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app.kubernetes.io/name: struts
+    app.kubernetes.io/name: struts-cli-demo
   ports:
     - protocol: TCP
       port: 8080
