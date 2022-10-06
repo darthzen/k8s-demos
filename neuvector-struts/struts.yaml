@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: struts-cli-demo
+  name: dply-struts-cli-demo
   labels:
     app: struts
 spec:
@@ -22,3 +22,14 @@ spec:
           name: 8080tcp8080
           protocol: TCP
 
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-struts-cli-demo
+spec:
+  selector:
+    app.kubernetes.io/name: struts-cli-demo
+  ports:
+    - protocol: TCP
+      port: 2080
+      targetPort: 8080tcp8080
